@@ -6,7 +6,8 @@ namespace Quiz.Lib
     public class CheckCalc
     {
         public Cheque[] FindCheques(int[] amounts) {
-            var maxAmount = Math.Max(amounts[0], Math.Max(amounts[1], amounts[2]));
+            var maxAmount = amounts.Max();
+
             for (int i = 0; i < maxAmount; i++)
             {
                 for (int j = 0; j < maxAmount; j++)
