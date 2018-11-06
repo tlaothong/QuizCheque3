@@ -9,7 +9,7 @@ namespace TestQuizCheque3
         public void Test1()
         {
             var quizCheque3 = new QuizCheque3Sol();
-            var result = quizCheque3.Q
+            var result = quizCheque3.
 
 
         }
