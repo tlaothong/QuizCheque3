@@ -99,3 +99,33 @@ For 40
  + #2 $10
  + #3 $30
 ```
+
+## More Samples
+
+```
+PS R:\d\QuizConsole> dotnet run
+Enter amount #1:
+15
+Enter amount #2:
+20
+Enter amount #3:
+25
+Enter amount #4:
+30
+You should write the following cheques
+#1 $5
+#2 $10
+#3 $15
+For 15
+ + #3 $15
+For 20
+ + #1 $5
+ + #3 $15
+For 25
+ + #2 $10
+ + #3 $15
+For 30
+ + #1 $5
+ + #2 $10
+ + #3 $15
+ ```
