@@ -6,7 +6,7 @@ namespace ChequeFinder.BizDomain
 {
     public interface IChequeFinderBizDomain
     {
-        IEnumerable<int> FindCheque(IEnumerable<int> prices);
-        IEnumerable<int> FindFactor(int number);
+        //IEnumerable<int> FindCheque(IEnumerable<int> prices);
+        //IEnumerable<int> FindFactor(int number);
     }
 }
