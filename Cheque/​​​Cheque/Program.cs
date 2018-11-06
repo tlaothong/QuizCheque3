@@ -65,6 +65,7 @@ namespace ___Cheque
                 if (!threeChequePayAble)
                 {
                     Console.WriteLine("Can't find 3 cheques for all those amounts.");
+                    Console.ReadKey();
                     return;
                 }
             }
