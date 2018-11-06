@@ -30,7 +30,7 @@ namespace QuizCheque3Sol
             
             c1 = min;
             c2 = min;
-            c3 = max/min;
+            c3 = max/2;
 
             cAll = c1 + c2 + c3;
 
