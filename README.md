@@ -44,7 +44,7 @@ You should write the following cheques
 #3 $40
 ```
 
-##Extra Samples
+## Extra Samples
 
 ```
 PS R:\d\QuizConsole> dotnet run
