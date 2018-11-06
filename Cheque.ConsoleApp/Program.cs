@@ -16,63 +16,38 @@ namespace Cheque.ConsoleApp
                 input[i] = int.Parse(Console.ReadLine());
             }
 
-            for (int i = 0; i < 4; i++)
+            int[] cheque = new int[3];
+            bool isStop = false;
+
+            for (int i = 0; i < input.Max() + 1; i++)
             {
-                for (int j = 0; j < 4; j++)
+                if (isStop) break;
+                for (int j = i; j < input.Max() + 1; j++)
                 {
-                    if (input[i] < input[j])
+                    if (isStop) break;
+                    for (int k = i; k < input.Max() + 1; k++)
                     {
-                        var t = input[i];
-                        input[i] = input[j];
-                        input[j] = t;
+                        if (IsCheck(input[0], i, j, k) && IsCheck(input[1], i, j, k) && IsCheck(input[2], i, j, k) && IsCheck(input[3], i, j, k))
+                        {
+                            cheque[0] = i;
+                            cheque[1] = j;
+                            cheque[2] = k;
+                            isStop = true;
+                            ShowMSG(cheque);
+                            break;
+                        }
+                        else if (i == input.Max() && j == input.Max() && k == input.Max())
+                        {
+                            System.Console.WriteLine("Can't find cheques");
+                        }
                     }
                 }
             }
-
-            int[] cheque = new int[3];
-            cheque[0] = input[0];
-            cheque[1] = cheque[2] = 0;
-
-            for (int i = 0; i < 3; i++)
-            {
-                if (input[0] != input[i + 1])
-                {
-                    cheque[1] = input[i + 1] - input[0];
-                    break;
-                }
-            }
-
-            cheque[2] = input[3] - cheque[1] - cheque[0];
-
-            if (IsMatch(input, cheque))
-            {
-                ShowMSG(cheque);
-            }
-            else
-            {
-                cheque[1] = input[1];
-                cheque[2] = input[3] - cheque[1] - cheque[0];
-                if (IsMatch(input, cheque))
-                {
-                    ShowMSG(cheque);
-                }
-                else
-                {
-                    System.Console.WriteLine("Can't find cheques");
-                }
-            }
         }
-        
-        private static bool IsMatch(int[] input, int[] cheque)
+
+        private static bool IsCheck(int input, int i, int j, int k)
         {
-            for (int i = 0; i < 3; i++)
-            {
-                if (input[2] == cheque[i] || input[2] == cheque[i] + cheque[(i + 1) % 3] || input[2] == cheque[i] + cheque[(i + 2) % 3] || input[2] == cheque.Sum())
-                {
-                    return true;
-                }
-            }
-            return false;
+            return input == i || input == j || input == k || input == i + j || input == i + k || input == j + k || input == i + j + k;
         }
 
         private static void ShowMSG(int[] cheque)
