@@ -7,7 +7,7 @@ namespace ChequeFinder.BizDomain
 {
     public class ChequeFinderBizDomain : IChequeFinderBizDomain
     {
-        public IEnumerable<int> FindCheque(IEnumerable<int> amounts)
+        public IEnumerable<int> FindCheque(List<int> amounts)
         {
             var cheques = new List<int>();
             var minValue = amounts.Min();
@@ -17,13 +17,19 @@ namespace ChequeFinder.BizDomain
                 cheques.Add(amount - minValue);
             }
 
-            var isCorrect = true;
-            foreach (var amount in amounts)
+            var canPayMinByCheques = CanPayByCheques(cheques, minValue);
+            if (!canPayMinByCheques && cheques[0] + cheques[1] == cheques[2])
             {
-                isCorrect &= CanPayByCheques(cheques, amount);
+                cheques[2] = minValue;
             }
 
-            if (isCorrect)
+            var isAllCorrect = true;
+            foreach (var amount in amounts)
+            {
+                isAllCorrect &= CanPayByCheques(cheques, amount);
+            }
+
+            if (isAllCorrect)
                 return cheques;
             else
                 return Enumerable.Empty<int>();

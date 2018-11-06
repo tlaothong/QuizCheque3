@@ -15,10 +15,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Test\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\ChequeFinder.BizDomain\ChequeFinder.BizDomain.csproj" />
   </ItemGroup>
 
