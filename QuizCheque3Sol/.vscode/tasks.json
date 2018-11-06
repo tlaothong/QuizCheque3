@@ -7,7 +7,7 @@
             "type": "process",
             "args": [
                 "build",
-                "QuizCheque3/QuizCheque3.csproj"
+                "${workspaceFolder}/QuizCheque3Sol.csproj"
             ],
             "problemMatcher": "$msCompile"
         }
