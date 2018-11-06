@@ -25,7 +25,6 @@ namespace ___Cheque
             }
             var ingorePrice = 99;
             priceList = priceList.OrderBy(it => it).ToList();
-
             var isIngorePriceIndex0 = priceList[0] == priceList[1];
             var isIngorePriceIndex2 = priceList[1] == priceList[2]
                 || priceList[0] + priceList[1] == priceList[2];
@@ -64,9 +63,26 @@ namespace ___Cheque
 
                 if (!threeChequePayAble)
                 {
-                    Console.WriteLine("Can't find 3 cheques for all those amounts.");
-                    Console.ReadKey();
-                    return;
+                    priceList[0] += shareCheque;
+                    priceList[1] += shareCheque - priceList[0];
+                    priceList[2] += shareCheque - priceList[0];
+                    priceList[3] += shareCheque - priceList[0];
+
+                    isIngorePriceIndex0 = priceList[0] == priceList[1];
+                    isIngorePriceIndex2 = priceList[1] == priceList[2]
+                        || priceList[0] + priceList[1] == priceList[2];
+                    isIngorePriceIndex3 = priceList[0] + priceList[1] + priceList[2] == priceList[3]
+                        || priceList[0] + priceList[1] == priceList[3]
+                        || priceList[0] + priceList[2] == priceList[3]
+                        || priceList[1] + priceList[2] == priceList[3]
+                        || priceList[2] == priceList[3];
+                    threeChequePayAble = isIngorePriceIndex0 || isIngorePriceIndex2 || isIngorePriceIndex3;
+                    if (!threeChequePayAble)
+                    {
+                        Console.WriteLine("Can't find 3 cheques for all those amounts.");
+                        Console.ReadKey();
+                        return;
+                    }
                 }
             }
             ingorePrice = isIngorePriceIndex0 ? 0
