@@ -13,7 +13,7 @@ Enter amount #3:
 45
 Enter amount #4:
 60
-You shold write the following cheques
+You should write the following cheques
 #1 $15
 #2 $15
 #3 $30
@@ -27,7 +27,7 @@ Enter amount #3:
 53
 Enter amount #4:
 59
-Can't find cheques
+Can't find 3 cheques for all those amounts.
 PS R:\d\QuizConsole> dotnet run
 Hello World!
 Enter amount #1:
@@ -38,7 +38,7 @@ Enter amount #3:
 60
 Enter amount #4:
 80
-You shold write the following cheques
+You should write the following cheques
 #1 $20
 #2 $20
 #3 $40
